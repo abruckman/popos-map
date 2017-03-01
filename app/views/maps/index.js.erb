@@ -1,0 +1,11 @@
+
+
+mapboxgl.accessToken = '<%=ENV['MAPBOX_TOKEN'] %>';
+var map = new mapboxgl.Map({
+    container: 'map', // container id
+    style: 'mapbox://styles/mapbox/streets-v9', //stylesheet location
+    center: [-122.3890999999994,37.788400000000024], // starting position
+    zoom: 12 // starting zoom
+});
+
+console.log("mapbox... hello")

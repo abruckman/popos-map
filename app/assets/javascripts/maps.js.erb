@@ -1,0 +1,58 @@
+
+$( document ).ready(function(){
+  // $.ajax({
+  //   url:'/maps'
+  // }).done(function(response){
+  //   console.log(response)
+  // })
+  // console.log('leaflet do not read this')
+  mapboxgl.accessToken = '<%=ENV['MAPBOX_TOKEN'] %>';
+  var map = new mapboxgl.Map({
+      container: 'map', // container id
+      style: 'mapbox://styles/mapbox/streets-v9', //stylesheet location
+      center: [-122.3890999999994,37.788400000000024], // starting position
+      zoom: 12 // starting zoom
+  });
+  console.log("map hello")
+  map.on('load', function () {
+
+    map.addLayer({
+        "id": "points",
+        "type": "symbol",
+        "source": {
+            "type": "geojson",
+            "data": {
+                // "type": "FeatureCollection",
+                // "features": [{
+                //     "type": "Feature",
+                //     "geometry": {
+                //         "type": "Point",
+                //         "coordinates": [-122.3238901390978, 37.783188059745586]
+                //     },
+                //     "properties": {
+                //         "title": "Mapbox DC",
+                //         "icon": "monument"
+                //     }
+                // }, {
+                //     "type": "Feature",
+                //     "geometry": {
+                //         "type": "Point",
+                //         "coordinates": [-122.414, 37.776]
+                //     },
+                //     "properties": {
+                //         "title": "Mapbox SF",
+                //         "icon": "harbor"
+                //     }
+                // }]
+            }
+        },
+        "layout": {
+            "icon-image": "{icon}-15",
+            "text-field": "{title}",
+            "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+            "text-offset": [0, 0.6],
+            "text-anchor": "top"
+        }
+    });
+});
+})
