@@ -10,22 +10,6 @@ $( document ).ready(function(){
   });
 // when the map loads we add our layers
   map.on('load', function () {
-    //  map.addLayer({
-    //     "id": "points",
-    //     "type": "symbol",
-    //     "source": {
-    //         "type": "geojson",
-    //         "data": "POPOS.geojson"
-    //        },
-    //     "layout": {
-    //         "icon-image": "park-15",
-    //         "text-field": "{title}",
-    //         "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
-    //         "text-offset": [0, 0.6],
-    //         "text-anchor": "top"        }
-    // });
-
-//
 // create our data source from our Json
     map.addSource("popos", {
       type: "geojson",
@@ -34,9 +18,9 @@ $( document ).ready(function(){
       clusterMaxZoom: 18,
       clusterRadius: 50
     })
-//
-//     // create the first layer for the unclustered points
-//
+
+    // create the first layer for the unclustered points
+
     map.addLayer({
         "id": "unclustered-points",
         "type": "symbol",
@@ -50,9 +34,9 @@ $( document ).ready(function(){
           "text-anchor": "top"
         }
     });
-//
-//     //Define our 3 different layers
-//
+
+    //Define our 3 different layers
+
     var layers = [
       [25, '#f28cb1', 20],
       [8, '#f1f075', 18],
